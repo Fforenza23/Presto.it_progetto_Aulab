@@ -11,8 +11,8 @@ return [
     'insertAd'=>"Coloca tu anuncio",
 
     //popup
-    'popup1'=>"¿Aún no has iniciado sesión?",
-    'popup2'=>"Regístrese ahora para recibir notificaciones exclusivas sobre nuestros productos, obtener acceso temprano a ofertas especiales y ¡no volver a perderse las últimas noticias!",
+    'popup1'=>"¿Ya has iniciado sesión?",
+    'popup2'=>"¡Regístrese ahora para acceder primero a notificaciones exclusivas sobre nuestros productos, avances de ofertas especiales y las últimas novedades!",
     'registration'=>"¡Regístrate ahora!",
     
     //copy centrale
@@ -40,6 +40,22 @@ return [
     'InsertImageAnnouncements'=>"Inserta una imagen",
     'chooseFile'=>"Selecciona archivo",
     'unselectedFile'=>"Ningún archivo seleccionado",
+    'messageAnnouncementCreate'=>'¡Anuncio creado con éxito! Verrà pubblicato solamente dopo la revisione',
+        
+    //Messaggi linee guida creazione annuncio
+    'titleRequired' => 'El campo del título es obligatorio.',
+    'titleMin' => 'El campo de título debe contener más de 4 caracteres.',
+    'titleMax' => 'El campo de título debe tener un máximo de 40 caracteres.',
+    'priceRequired' => 'El campo precio es obligatorio',
+    'priceNumeric' => 'El campo de precio debe ser un número.',
+    'descriptionRequired' => 'El campo de descripción es obligatorio.',
+    'descriptionMin' => 'El campo de descripción debe contener más de 10 caracteres.',
+    'descriptionMax' => 'El campo de descripción debe tener un máximo de 255 caracteres.',
+    'categoryRequired' => 'El campo de categoría es obligatorio.',
+    'imagesImage' => 'Los archivos subidos deben ser imágenes.',
+    'imagesMax' => 'Los archivos cargados no deben exceder 1 MB de tamaño',
+    'tempImagesImage' => 'Los archivos subidos deben ser imágenes.',
+    'tempImagesMax' => 'Los archivos cargados no deben exceder 1 MB de tamaño',
 
     //Card Anteprima
     'previewPriceAnnouncement'=>"Precio : ",
@@ -54,6 +70,7 @@ return [
     'categoryCardDetails'=>"Categoría :",
     'buttonBuy'=>"Comprar",
     'addFavorites'=>"Agregar a favoritos",
+    'noAsdForThisCategory'=>"No hay anuncios relacionados para esta categoría.",
 
     //alert non ci sono annunci
     'alertNoAds'=>"No hay anuncios para esta búsqueda. Intente cambiar los parámetros de búsqueda.",
@@ -111,6 +128,19 @@ return [
    'registerR'=>"Regístrate",
    'requestRegister'=>"¿Ya estás registrado?",
    'loginR'=>"Iniciar sesión",
+      
+   //Messaggi linee guida registrazione
+
+   'name.required' => 'El campo de nombre es obligatorio.',
+   'name.max' => 'El campo de nombre no puede exceder los 255 caracteres.',
+   'email.required' => 'El campo de correo electrónico es obligatorio.',
+   'email.email' => 'Introduzca una dirección de correo electrónico válida.',
+   'email.max' => 'El campo de correo electrónico no puede exceder los 255 caracteres.',
+   'email.unique' => 'Esta cuenta de correo electrónico ya fue usada.',
+   'password.required' => 'El campo de contraseña es obligatorio.',
+   'password.alfa' => 'El campo de contraseña debe ser alfanumérico',
+   'password.mod' => 'La contraseña debe contener al menos una letra mayúscula.',
+   'password.confirmed' => 'Las contraseñas no coinciden.',
 
     //Password Dimenticata 
     'recoverPsw'=>"Recupera tu contraseña",
@@ -167,6 +197,7 @@ return [
     'messageAsdAccepted'=>"Enhorabuena, has aceptado el anuncio.",
     'buttonrefuse'=>"Rechazar",
     'messageAsdRejected'=>"Felicitaciones, rechazaste el anuncio.",
+    'returnHomepage'=>"Volver a la página de inicio",
 
     //Ricerca per categoria
     'textAdsByCategory'=>"Aquí están los resultados encontrados para la categoría:",

@@ -11,8 +11,8 @@ return [
     'insertAd'=>"Inserisci il tuo annuncio",
 
     //popup
-    'popup1'=>"Non hai fatto ancora l'accesso?",
-    'popup2'=>"Registrati ora per ricevere notifiche esclusive sui nostri prodotti, accedere in anteprima alle offerte speciali e non perderti mai più le ultime novità!",
+    'popup1'=>"Hai già fatto l'accesso?",
+    'popup2'=>" Registrati ora per accedere a notifiche esclusive sui nostri prodotti, anteprime delle offerte speciali e tutte le ultime novità in anteprima!",
     'registration'=>"Iscriviti ora",
     
     //copy centrale
@@ -40,6 +40,22 @@ return [
     'InsertImageAnnouncements'=>"Inserisci un'immagine",
     'chooseFile'=>"Scegli File",
     'unselectedFile'=>"Nessun file selezionato",
+    'messageAnnouncementCreate'=>'Annuncio creato con successo! Verrà pubblicato solamente dopo la revisione',
+
+    //Messaggi linee guida creazione annuncio
+    'titleRequired' => 'Il campo titolo è obbligatorio',
+    'titleMin' => 'Il campo titolo deve contenere più di 4 caratteri',
+    'titleMax' => 'Il campo titolo deve essere lungo al massimo 40 caratteri',
+    'priceRequired' => 'Il campo prezzo è obbligatorio',
+    'priceNumeric' => 'Il campo prezzo deve essere un numero',
+    'descriptionRequired' => 'Il campo descrizione è obbligatorio',
+    'descriptionMin' => 'Il campo descrizione deve contenere più di 10 caratteri',
+    'descriptionMax' => 'Il campo descrizione deve essere lungo al massimo 255 caratteri',
+    'categoryRequired' => 'Il campo categoria è obbligatorio',
+    'imagesImage' => 'I file caricati devono essere delle immagini',
+    'imagesMax' => 'I file caricati non devono superare 1 mb di grandezza',
+    'tempImagesImage' => 'I file caricati devono essere delle immagini',
+    'tempImagesMax' => 'I file caricati non devono superare 1 mb di grandezza',
 
     //Card Anteprima
     'previewPriceAnnouncement'=>"Prezzo : ",
@@ -54,6 +70,7 @@ return [
     'categoryCardDetails'=>"Categoria :",
     'buttonBuy'=>"Acquista",
     'addFavorites'=>"Aggiungi ai preferiti",
+    'noAsdForThisCategory'=>"Non ci sono annunci correlati per questa categoria.",
 
     //alert non ci sono annunci
     'alertNoAds'=>"Non ci sono annunci per questa ricerca. Prova a cambiare i parametri di ricerca.",
@@ -112,6 +129,19 @@ return [
    'requestRegister'=>"Sei già registrato?",
    'loginR'=>"Accedi",
 
+   //Messaggi linee guida registrazione
+
+   'name.required' => 'Il campo nome è obbligatorio.',
+   'name.max' => 'Il campo nome non può superare i 255 caratteri.',
+   'email.required' => 'Il campo email è obbligatorio.',
+   'email.email' => 'Inserisci un indirizzo email valido.',
+   'email.max' => 'Il campo email non può superare i 255 caratteri.',
+   'email.unique' => 'Questo indirizzo email è già stato utilizzato.',
+   'password.required' => 'Il campo password è obbligatorio.',
+   'password.alfa' => 'Il campo password deve essere alfanumerico',
+   'password.mod' => 'La password deve contenere almeno una lettera maiuscola',
+   'password.confirmed' => 'Le password non corrispondono.',
+
     //Password Dimenticata 
     'recoverPsw'=>"Recupera la tua password",
     'insertemailPsw'=>"Inserisci la tua email",
@@ -119,7 +149,7 @@ return [
     'buttonContinues'=>"Continua",
 
     //Resetta Password
-    'resetPsw'=>"Resetta la tua password",
+    'resetPsw'=>"Modifica la tua password",
     'emailResetPsw'=>"Email",
     'newPswReset'=>"Inserisci la nuova password",
     'retypePswReset'=>"Ripeti la password",
@@ -167,6 +197,7 @@ return [
     'messageAsdAccepted'=>"Complimenti, hai accettato l'annuncio",
     'buttonrefuse'=>"Rifiuta",
     'messageAsdRejected'=>"Complimenti, hai rifiutato l'annuncio",
+    'returnHomepage'=>"Torna allahomepage",
 
     //Ricerca per categoria
     'textAdsByCategory'=>"Ecco i risultati trovati per la categoria :",

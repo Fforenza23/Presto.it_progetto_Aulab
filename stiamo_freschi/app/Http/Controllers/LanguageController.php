@@ -9,7 +9,10 @@ class LanguageController extends Controller
 {
     public function setLanguage($lang)
     {
-        session()->put('locale', $lang);
+        if (in_array($lang, ['en', 'es', 'it'])) {
+            
+            session()->put('locale', $lang);
+        }
         return redirect()->back();
     }
 }

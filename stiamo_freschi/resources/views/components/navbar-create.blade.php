@@ -1,10 +1,8 @@
 <nav class="navbar mobile ">
     <div class="container-navbar">
-        <a href="/">
-            <div class="container-logo">
-                <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo">
-            </div>
-        </a>
+        <div class="container-logo">
+            <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo">
+        </div>
         <div class="container-menu">
             <button class="navbar-toggler" style="margin-right:30px" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -13,25 +11,14 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header" style="padding-left: 0px">
-                    <a href="/">
-                        <div class="container-logo">
-                            <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo">
-                        </div>
-                    </a>
+                    <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo"
+                        style="margin-top: 5px; padding-left:0px">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
                         style="padding-left: 0px"></button>
                 </div>
                 <div class="offcanvas-body" style="padding-top:0px">
-                    <div class="DivOFF"
+                    <div
                         style="height: 30%; display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                        @auth
-                            <div class="container-fluid">
-                                <div class="btn-ann">
-                                    <a href="{{ route('announcement.create') }}"><button
-                                            class="btn-desk2">{{ __('ui.buttonInsertAds') }}</button></a>
-                                </div>
-                            </div>
-                        @endauth
 
                         @if (Auth::check())
                             @if (Auth::user()->is_revisor)
@@ -45,10 +32,8 @@
                         <div class="div-btn-desk">
                             @guest
 
-                                <a href="/login" class="A3"><button
-                                        class="btn-desk2">{{ __('ui.buttonLoginG') }}</button></a>
-                                <a href="/register" class="A3"><button
-                                        class="btn-desk2">{{ __('ui.buttonRegisterG') }}</button></a>
+                                <a href="/login"><button class="btn-desk2">{{ __('ui.buttonLoginG') }}</button></a>
+                                <a href="/register"><button class="btn-desk2">{{ __('ui.buttonRegisterG') }}</button></a>
 
                             @endguest
                             @auth
@@ -135,16 +120,15 @@
                                     </ul>
                                 </div>
                             @endauth
-                            <div class="dropdown icon-btn  A6">
-                                <button id="languageButton" class="btn dropdown-toggle icon-profile A3 A2"
-                                    type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                            <div class="dropdown icon-btn" style="margin-right: 35px">
+                                <button id="languageButton" class="btn dropdown-toggle icon-profile"
+                                    style="width: 100px" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ __('ui.changeLanguage') }}
                                 </button>
                                 <ul class="dropdown-menu  " aria-labelledby="dropdownMenuButton"
                                     style="margin-right: 10px">
-                                    <li style="display: flex; margin:10px"><x-_locale lang='it'
-                                            nation='it' />
+                                    <li style="display: flex; margin:10px"><x-_locale lang='it' nation='it' />
                                     </li>
                                     <li style="display: flex;margin:10px"><x-_locale lang='en' nation='gb' />
                                     </li>
@@ -162,39 +146,25 @@
 </nav>
 <nav class="navbar tablet">
     <div class="container-navbar">
-        <a href="/">
-            <div class="container-logo">
-                <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo">
-            </div>
-        </a>
+        <div class="container-logo">
+            <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo">
+        </div>
         <div class="container-menu">
             <button class="navbar-toggler" style="margin-right:30px" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbarTablet" aria-controls="offcanvasNavbarTablet"
-                aria-label="Toggle navigation">
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarTablet"
-                aria-labelledby="offcanvasNavbarLabelTablet">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header" style="padding-left: 0px">
-                    <a href="/" class="DIVLOg">
-                        <div class="container-logo">
-                            <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo">
-                        </div>
-                    </a>
+                    <img src="\img\logo.presto.scontornato.2.png" alt="logo" class="img-logo"
+                        style="margin-top: 5px; padding-left:0px">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
                         style="padding-left: 0px"></button>
                 </div>
                 <div class="offcanvas-body" style="padding-top:0px">
-                    <div class="DivOFF"
+                    <div
                         style="height: 30%; display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                        @auth
-                            <div class="container-fluid">
-                                <div class="btn-ann">
-                                    <a href="{{ route('announcement.create') }}"><button
-                                            class="btn-desk2">{{ __('ui.buttonInsertAds') }}</button></a>
-                                </div>
-                            </div>
-                        @endauth
 
                         @if (Auth::check())
                             @if (Auth::user()->is_revisor)
@@ -205,7 +175,7 @@
                             @endif
 
                         @endif
-                        <div class="div-btn-desk">
+                        <div class="div-btn-desk" style="display: flex; flex-direction: column">
                             @guest
 
                                 <a href="/login"><button class="btn-desk2">{{ __('ui.buttonLoginG') }}</button></a>
@@ -469,7 +439,7 @@
         </div>
     </div>
 </nav>
-<div class="container-cat" style="z-index: 200">
+<div class="container-cat" style="display:none">
     <div class="container-fluid">
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

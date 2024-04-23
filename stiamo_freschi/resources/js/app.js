@@ -123,7 +123,12 @@ document.addEventListener('DOMContentLoaded', function () {
       });*/
 });
 
-
+function hidePopup() {
+    document.getElementById('popSuccess').style.display = 'none';
+}
+function hidePopupDenied() {
+    document.getElementById('popDenied').style.display = 'none';
+}
 
 
 

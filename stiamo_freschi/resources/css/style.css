@@ -29,6 +29,7 @@
 .container-img-back {
     background: url("/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg");
     background-repeat: none;
+    background-size: cover;
 }
 
 .popup {
@@ -47,21 +48,34 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+.popup svg {
+    color: white;
+    transition: 0.5s ease all;
+}
+
+.popup svg:hover {
+    color: #081F37;
+    scale: 1.1;
+}
+
 .ContainerCard {
     width: 100%;
     min-height: 100vh;
     height: auto;
-    display: flex;
+    display: block;
     background-color: none;
-    padding-bottom: 30px;
     margin-top: 0px;
 }
 
+
 .btn_popup {
-    margin-top: 50px;
+    margin-top: 20px;
     width: 90px;
     height: 40px;
+    transition: 0.2s ease all;
 }
+
+
 
 .overlay {
     z-index: 3000;
@@ -82,7 +96,7 @@
 #close {
     position: absolute;
     top: -20px;
-    right: -20px;
+    right: -30px;
     color: #fff;
 }
 
@@ -99,6 +113,7 @@
 }
 
 .div-btn-acq {
+    width: 90%;
     margin-top: 20px;
     margin-left: 70px;
 }
@@ -135,6 +150,7 @@
 .btn-desk2:hover {
     background-color: #00B58F;
     color: #081F37;
+
 }
 
 .container-navbar {
@@ -205,6 +221,7 @@
     color: white;
     background-color: #081F37;
     height: 35px !important;
+    transition: 0.2s ease all;
 }
 
 .btn:hover {
@@ -216,7 +233,6 @@
     margin-top: 5px;
     height: 30px;
     width: 70%;
-    background-color: none;
 }
 
 .img-container-mobile {
@@ -246,8 +262,6 @@
     background: url("/public/img/iug.png");
     background-size: cover;
     background-repeat: no-repeat;
-
-
 }
 
 .btn-menu {
@@ -290,6 +304,7 @@
     align-items: center;
     background-color: white;
     background-color: transparent;
+    margin-top: 20px;
 }
 
 .btn-copy {
@@ -446,12 +461,23 @@ nav.desktop {
     z-index: 2001;
 }
 
+.A2 {
+    width: 100px;
+}
+
+.A6 {
+    margin-right: 35px
+}
+
 .icon-profile {
     padding: 5px;
     width: 70px;
     height: 50px;
     border: none;
     margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -485,6 +511,7 @@ nav.desktop {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.2s ease all;
 }
 
 
@@ -504,20 +531,20 @@ nav.desktop {
 
 .banner2 {
     flex: 1;
-    position: sticky;
-    left: 0px;
-    top: 60px;
-    display: block;
+    display: flex;
     max-height: 50px;
     justify-content: start;
     align-items: start;
-    margin-top: 30px;
-    margin-bottom: 60vh;
+    position: sticky;
+    top: 60px;
+    left: 0px;
+    right: 0px;
 }
 
 .back-by-cat {
     background: url("/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg");
     background-repeat: none;
+    background-size: cover;
 }
 
 .banner {
@@ -574,6 +601,7 @@ nav.desktop {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+
 .txt-img h4 {
     color: rgba(0, 0, 0, 0.63);
 }
@@ -603,7 +631,7 @@ nav.desktop {
 
 .div-foot {
     display: flex;
-    padding-right: 300px;
+    padding-right: 100px;
 }
 
 .section1 {
@@ -706,7 +734,7 @@ nav.desktop {
 
 .div-cons {
     width: 950px;
-    margin-top: 100px;
+    margin-top: 120px;
     padding: 0px;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
@@ -723,13 +751,12 @@ nav.desktop {
 
 
 .div-card {
-    margin-top: 60px;
+    margin-top: 50px;
     flex: 3;
     min-height: 100vh;
     height: auto;
     display: flex;
     flex-direction: column;
-    margin-right: 0px;
     background-image: url('/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg');
     background-size: cover;
     background-position: center;
@@ -767,6 +794,8 @@ nav.desktop {
     border-radius: 25px;
     margin: 30px;
     background-color: rgba(217, 217, 217, 0.6);
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .card_dash_p:hover {
@@ -801,23 +830,103 @@ nav.desktop {
 }
 
 .liMargin {
-    margin-left: 20px
+    margin-left: 10px;
 }
 
 .card-dash {
-    height: 80%;
     width: 80%;
     margin-top: 40px;
-    margin-left: 150px;
+    margin-left: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .card-dash2 {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background-color: #dbd8e388;
+    width: 100%;
+    height: 500px;
+}
+
+.DivModProf {
+    background-image: url('/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px;
+    height: max-content;
+    padding-bottom: 10px;
+}
+
+.divPadreMod {
+    height: 500px;
+    margin: 20px;
+    margin-bottom: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #dbd8e388;
+    display: flex;
+    flex-direction: column;
+}
+
+.InfoModProf {
     flex: 2;
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.ModFoto {
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dbd8e388;
 }
+
+.ModFoto1 {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 60px;
+}
+
+.ModFoto1 img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: none;
+}
+
+.ModForm1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+    padding-bottom: 5px;
+
+    background-color: none;
+}
+
+.PadreDivREvi {
+    display: flex;
+    height: max-content
+}
+
+.FormProf {
+    height: 50px;
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid rgb(113, 112, 112);
+    background-color: transparent;
+    padding: 0px;
+
+}
+
+
 
 .img-size {
     height: 550px;
@@ -825,6 +934,19 @@ nav.desktop {
     width: 400px;
 }
 
+.card_dash_pR {
+    flex: 3;
+    width: 900px;
+    height: 250px;
+    border-radius: 25px;
+    margin: 30px;
+    background-color: rgba(217, 217, 217, 0.6);
+}
+
+.card_dash_pR:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
 
 
 .div-descr {
@@ -832,25 +954,87 @@ nav.desktop {
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 50px;
+    position: relative;
+}
 
+.div-descr h6 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.div-descr h1 {
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+.div-descr h2 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #00B58F;
+
+}
+
+.div-descr p {
+    margin-top: 80px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.ann_tit_rev {
+    padding: 0px;
+    font-size: 20px;
 }
 
 .inserzione {
     background-color: #dbd8e3;
-    height: 60px;
+    height: 80px;
     width: 100%;
     display: flex;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
+
+.containerTitleRevisor {
+
+    width: 100%;
+    display: flex;
+
+}
+
+.containerTitleRevisorChild {
+    flex: 2;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.207);
+}
+
+.containerTitleRevisorChild2 {
+    flex: 4.5;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 20px;
+
+}
+
+
+
+
 
 .li-aside2 {
     width: 100%;
     list-style: none;
-    padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: solid 1px black;
     display: flex;
+    justify-content: center;
+    align-items: center;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
 }
@@ -887,7 +1071,7 @@ nav.desktop {
 }
 
 .true:hover {
-    background-color: green;
+    background-color: rgb(6, 184, 6);
 }
 
 .true svg:hover {
@@ -903,16 +1087,32 @@ nav.desktop {
 }
 
 .div-btn {
+
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.div_container_btn {
-    position: absolute;
-    bottom: 20px;
-    right: 180px;
+.containerButtonRevisor {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    top: 350px;
+}
+
+.containerButtonRevisor button {
+    height: 40px !important;
+
+}
+
+
+.copyRev {
+    margin-left: 200px;
 }
 
 .btn_btn {
@@ -982,20 +1182,47 @@ nav.desktop {
     height: 40vh;
     /* background-color: #133f6f;*/
     background: transparent;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+    padding-left: 20px;
 }
 
 .divfoto {
     display: flex;
-    justify-content: center;
-    flex: 1;
+    justify-content: start;
+    align-items: center;
+    flex: 0.7;
+    background-color: none;
+    padding-right: 20px;
+}
+
+.divfoto img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
 }
 
 .divNome {
-    flex: 2;
+    flex: 3;
+    background-color: none;
+    padding-left: 20px;
+}
+
+.divNome h3 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.divNome p {
+    font-size: 20px;
+    font-weight: 500;
+
 }
 
 .divModifica {
-    flex: 1;
+    flex: 0.5;
 }
 
 .btnModificaProfile {
@@ -1010,8 +1237,25 @@ nav.desktop {
 }
 
 .btn-prof {
+    background-color: #081F37;
+    color: white;
+    margin-right: 10px;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 35px;
+    min-width: 120px;
+    width: auto;
+    white-space: nowrap;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+}
+
+.btn-prof:hover {
+    cursor: default;
 }
 
 .pop {
@@ -1024,9 +1268,22 @@ nav.desktop {
     right: 130px;
 }
 
+
 .trasp {
-    opacity: 0.8;
-    color: #00B58F;
+    opacity: 0.93;
+    color: green;
+}
+
+.traspDenied {
+    opacity: 0.93;
+    color: red;
+
+}
+
+.traspWarning {
+    opacity: 0.93;
+    color: orange;
+
 }
 
 .btnCloseM {
@@ -1036,9 +1293,32 @@ nav.desktop {
     bottom: 2px;
     cursor: pointer;
     font-weight: 500;
+    color: green;
+}
+
+.btnCloseDenied {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    bottom: 2px;
+    cursor: pointer;
+    font-weight: 500;
+    color: red;
 }
 
 @media screen and (max-width:749.90px) {
+    nav.desktop {
+        display: none;
+    }
+
+    nav.tablet {
+        display: none;
+    }
+
+    nav.mobile {
+        display: flex;
+    }
+
     .body {
         padding: 0px !important;
         margin: 0px !important;
@@ -1061,11 +1341,51 @@ nav.desktop {
         background-color: rgba(129, 130, 132, 0.43);
         display: flex;
         align-items: center;
-        margin-top: 60px;
+        margin-top: 0px;
         position: fixed;
         left: 0px;
         right: 0px;
         padding-left: 10px;
+    }
+
+    .Card {
+        display: none;
+    }
+
+    .div-btn-desk {
+        width: 100%;
+    }
+
+    .A3 {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .A6 {
+        margin: 0px;
+    }
+
+    .icon-btn {
+        margin-right: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+
+    .btn-desk2 {
+        width: 100%;
+    }
+
+    .div-modale {
+        flex: 1;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+    .BtnRegistratiLogin {
+        display: flex !important;
     }
 
     .container-copy {
@@ -1228,6 +1548,196 @@ nav.desktop {
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
 
+    .PadreDivREvi {
+        width: 100%;
+        display: flex;
+    }
+
+    .div-card1 {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .div-card_dash {
+        flex-direction: column;
+    }
+
+    .card_dash_pR {
+        width: 300px;
+    }
+
+    .card_dash_p {
+        width: 300px;
+    }
+
+    .div-form {
+        min-height: 100vh;
+        height: auto;
+        background-image: url('/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        color: black;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .Card {
+        margin-right: 15px !important;
+        margin-left: 0px !important;
+    }
+
+    .div-cons {
+        width: 750px !important;
+        margin-top: 120px;
+        padding: 0px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        background-color: #d9d9d99a;
+        box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+        border-bottom-right-radius: 25px;
+        border-top-right-radius: 25px;
+        margin-bottom: 50px;
+    }
+
+    .cardLayoutFormCreate {
+        height: 450px;
+        width: 300px !important;
+        background-color: #d9d9d999;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .aside-left {
+        display: none;
+    }
+
+
+    .card-dash2 {
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerCardDash {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: start !important;
+    }
+
+    .img-size {
+        width: 100%;
+        height: 100%;
+    }
+
+    .containerButtonRevisor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        top: 235px;
+    }
+
+    .true {
+        width: 100px !important;
+    }
+
+    .false {
+
+        width: 100px !important;
+    }
+
+
+    .ann_tit_rev {
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    .carousel-control-next {
+        left: 180px;
+    }
+
+    .carousel-control-prev-icon {
+        background-color: #081F37;
+        height: 50px;
+        width: 40px;
+        border-radius: 20%;
+        padding: 0px;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        position: relative;
+        right: 0px !important;
+        margin: 0px !important;
+    }
+
+    .carousel-control-next-icon {
+        padding: 0px;
+    }
+
+    .slide {
+        width: 280px;
+        height: 320px;
+        margin-top: 30px;
+    }
+
+    .copyRev {
+        margin-left: 0px;
+    }
+
+    .card-dash {
+        width: 280px;
+        margin-top: 40px;
+        margin-left: 50px;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .DivOFF {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .container-fluid {
+        flex: 2;
+        justify-content: center;
+        align-items: center;
+        margin-left: 50px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .btn-revisore {
+        flex: 2;
+        margin-bottom: 15px;
+    }
+
+    .div-btn-desk {
+        flex: 4;
+        flex-direction: column;
+    }
+
+    .btn-ann {
+        display: flex;
+    }
 }
 
 @media screen and (min-width:560px) and (max-width:750.9px) {
@@ -1246,19 +1756,177 @@ nav.desktop {
         flex-direction: row;
         width: 100% !important;
         height: 70vh;
-        margin-bottom: 40vh;
+        margin-bottom: 100px;
+    }
+
+    .container-row {
+        margin-bottom: 30px !important;
+    }
+
+    .card-body1 {
+        height: 300px;
+        width: 500px;
+    }
+
+    .card-body2 {
+        height: 300px;
+        width: 500px;
     }
 
     .banner {
         margin-top: 20px;
     }
+
+    .containerPadreLogin {
+        width: 90%;
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(245, 243, 243);*/
+        background-image: url("/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        flex-direction: column;
+        padding: 60px;
+    }
+
+    .div-btn-desk {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .btn-desk2 {
+        margin: 30px;
+    }
+
+    .dropdown.icon-btn {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 160px;
+        padding: .5rem 0;
+        margin: .125rem 0 0;
+        font-size: 1rem;
+        color: #212529;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, .15);
+        border-radius: .25rem;
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .form-control {
+        margin-top: 5px;
+        height: 30px;
+        width: 70%;
+        background-color: #dbd8e3;
+    }
+
+    .container-fluid {
+        display: flex;
+        align-items: center;
+        padding: 0px;
+        margin: 0px;
+        height: 100%;
+        background-color: none;
+        flex: 2;
+        width: 10px;
+    }
+
+    .btn-ann {
+        display: flex;
+    }
+
+    .div-form {
+        min-height: 100vh;
+        height: auto;
+        background-image: url('/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        color: black;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .Card {
+        margin-right: 15px !important;
+        margin-left: 0px !important;
+    }
+
+    .div-cons {
+        width: 750px !important;
+        margin-top: 120px;
+        padding: 0px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        background-color: #d9d9d99a;
+        box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+        border-bottom-right-radius: 25px;
+        border-top-right-radius: 25px;
+        margin-bottom: 50px;
+    }
+
+    .cardLayoutFormCreate {
+        height: 450px;
+        width: 300px !important;
+        background-color: #d9d9d999;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .PadreDivREvi {
+        width: 100%;
+        display: flex;
+    }
+
+    .div-card1 {
+        flex-direction: column !important;
+        margin-top: 50px;
+    }
+
+    .div-card_dash {
+        flex-direction: column !important;
+    }
+
+    .card_dash_pR {
+        width: 300px;
+    }
+
+    .card_dash_p {
+        width: 300px;
+    }
 }
 
-@media screen and (min-width:751px) and (max-width:990.9) {
+@media screen and (min-width:751px) and (max-width:990.9px) {
     .container-row {
         display: flex;
         flex-direction: row;
     }
+
+
 
     .mobile {
         display: none !important;
@@ -1272,24 +1940,104 @@ nav.desktop {
         display: flex !important;
     }
 
+    .container-logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        background-color: none;
+        padding-left: 100px;
+    }
+
     .container-cat {
         display: none;
     }
 
     .banner {
-        margin-top: 70px;
+        margin-top: 60px;
 
+    }
+
+    .container-copy {
+        margin-bottom: 80px;
+    }
+
+    .ContainerCard {
+        padding-top: 120px;
     }
 
     .row {
         width: 100% !important;
     }
 
+    .div-container {
+        margin-top: 0px;
+    }
+
+    .DIVLOg {
+        width: 80%;
+        margin-left: 30px;
+    }
+
+    .container-logo {
+        width: 70%;
+    }
+
+    .btn-revisore {
+        margin-top: 60px;
+    }
+
+    .div-btn-desk {
+        display: flex;
+        flex-direction: column !important;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    .btn-close {
+        width: 50%;
+        height: 100px;
+        margin-right: 90px !important;
+    }
+
+    .container-fluid {
+        width: 235px !important;
+        position: absolute;
+        right: 120px;
+    }
+
+    .container-menu {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+        position: absolute;
+        right: 15px;
+    }
+
+    .form-control {
+        margin-top: 15px;
+    }
+
+    .container-cat {
+        margin-top: 0px;
+    }
+
     .containerD {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         width: 100% !important;
         height: 70vh;
+    }
+
+    .container-row {
+        margin-left: 30px;
+        padding-right: 0px;
+        padding-left: 50px;
     }
 
     .container-logo {
@@ -1302,6 +2050,102 @@ nav.desktop {
         margin: 0px;
     }
 
+    .PadreDivREvi {
+        width: 100%;
+        display: flex !important;
+    }
+
+    .div-card1 {
+        flex-direction: column !important;
+        margin-top: 50px;
+    }
+
+    .div-card_dash {
+        flex-direction: column !important;
+    }
+
+    .card_dash_pR {
+        width: 300px !important;
+    }
+
+    .card_dash_p {
+        width: 300px !important;
+    }
+
+    .div-btn-desk {
+        background-color: none;
+        display: flex;
+        flex-direction: column !important;
+        flex: 1;
+        justify-content: end;
+        align-items: center;
+        z-index: 2001;
+    }
+
+    .containerPadreLogin {
+        width: 80%;
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(245, 243, 243);*/
+        background-image: url("/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg");
+        background-size: cover;
+        background-position: center;
+        flex-direction: column;
+        padding: 60px !important;
+    }
+
+    .div-foot {
+        display: flex;
+        padding-right: 100px !important;
+    }
+
+    .div-form {
+        padding: 50px !important;
+    }
+
+    .Card {
+        margin-right: 20px !important;
+        margin-left: 0px !important;
+    }
+
+    .container-fluid {
+        margin-right: 0px;
+        right: 0px;
+    }
+
+    .btn-ann {
+        display: flex;
+    }
+
+    .cardLayoutFormCreate {
+        height: 450px;
+        width: 300px !important;
+        background-color: #d9d9d999;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .div-cons {
+        width: 750px !important;
+    }
+
+    .div-form {
+        min-height: 100vh;
+        height: auto;
+        background-image: url('/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        color: black;
+        justify-content: center;
+        padding: 60px !important;
+    }
 }
 
 @media screen and (min-width:991px) and (max-width:1200.9px) {
@@ -1332,6 +2176,47 @@ nav.desktop {
         top: 100px;
         left: 180px;
     }
+
+
+    .containerPadreLogin {
+        width: 90%;
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(245, 243, 243);*/
+        background-image: url("/public/img/sfondo-astratto-con-un-design-monocromatico-low-poly_1048-14453.jpg");
+        background-size: cover;
+        background-position: center;
+        flex-direction: column;
+        padding: 60px !important;
+    }
+
+
+    .PadreDivREvi {
+        width: 100%;
+        display: flex !important;
+    }
+
+    .div-card1 {
+        flex-direction: column !important;
+        margin-top: 50px;
+    }
+
+    .div-card_dash {
+        flex-direction: column;
+    }
+
+    .card_dash_pR {
+        width: 600px !important;
+    }
+
+    .card_dash_p {
+        width: 600px !important;
+    }
+
+
 }
 
 @media screen and (min-width:1201px) {
@@ -1391,6 +2276,7 @@ nav.desktop {
         font-weight: 500;
         border-radius: 20px;
         margin-top: 70px;
+        transition: 0.2s ease-in-out;
 
     }
 
@@ -1398,6 +2284,7 @@ nav.desktop {
         text-decoration: none;
         color: white;
     }
+
 
     .btn-txt-img:hover {
         background-color: #133f6f;
@@ -1420,4 +2307,20 @@ nav.desktop {
         top: 100px;
         left: 180px;
     }
+}
+
+.containerCardDash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerInfoRevisor {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+
 }

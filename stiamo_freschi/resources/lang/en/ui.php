@@ -40,6 +40,22 @@ return [
     'InsertImageAnnouncements'=>"Insert an image",
     'chooseFile'=>"Choose File",
     'unselectedFile'=>"No file selected",
+    'messageAnnouncementCreate'=>'Announcement created successfully! It will be published only after the review',
+    
+    //Messaggi linee guida creazione annuncio
+    'titleRequired' => 'The title field is mandatory',
+    'titleMin' => 'The title field must contain more than 4 characters',
+    'titleMax' => 'The title field must be a maximum of 40 characters long',
+    'priceRequired' => 'The price field is mandatory',
+    'priceNumeric' => 'The price field must be a number',
+    'descriptionRequired' => 'The description field is mandatory',
+    'descriptionMin' => 'The description field must contain more than 10 characters',
+    'descriptionMax' => 'The description field must be a maximum of 255 characters long',
+    'categoryRequired' => 'The category field is mandatory',
+    'imagesImage' => 'The uploaded files must be images',
+    'imagesMax' => 'Uploaded files must not exceed 1 MB in size',
+    'tempImagesImage' => 'The uploaded files must be images',
+    'tempImagesMax' => 'Uploaded files must not exceed 1 MB in size',
     
     //Card Anteprima
     'previewPriceAnnouncement'=>"Price : ",
@@ -54,6 +70,7 @@ return [
     'categoryCardDetails'=>"Category :",
     'buttonBuy'=>"Buy",
     'addFavorites'=>"add to favourites",
+    'noAsdForThisCategory'=>"Non ci sono annunci correlati per questa categoria.",
 
    //alert non ci sono annunci
    'alertNoAds'=>"There are no ads for this search. Try changing the search parameters",
@@ -112,6 +129,19 @@ return [
    'requestRegister'=>"Are you already registered?",
    'loginR'=>"login",
 
+   //Messaggi linee guida registrazione
+
+   'name.required' => 'The name field is mandatory.',
+   'name.max' => 'The name field cannot exceed 255 characters.',
+   'email.required' => 'The email field is mandatory.',
+   'email.email' => 'Enter a valid email address.',
+   'email.max' => 'The email field cannot exceed 255 characters.',
+   'email.unique' => 'This email address has already been used.',
+   'password.required' => 'The password field is mandatory.',
+   'password.alfa' => 'The password field must be alphanumeric',
+   'password.mod' => 'The password must contain at least one capital letter',
+   'password.confirmed' => 'Passwords do not match.',
+
     //Password Dimenticata 
     'recoverPsw'=>"Recover your password",
     'insertemailPsw'=>"insert your email",
@@ -167,6 +197,7 @@ return [
     'messageAsdAccepted'=>"Congratulations, you have accepted the announcement",
     'buttonrefuse'=>"Reject",
     'messageAsdRejected'=>"Congratulations, you rejected the ad",
+    'returnHomepage'=>"Back to home Page",
 
     //Ricerca per categoria
     'textAdsByCategory'=>"Here are the results found for the category:",

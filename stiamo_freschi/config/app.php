@@ -183,6 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
+        App\Providers\CategoryTranslationsProvider::class,
 
         /*
          * Package Service Providers...

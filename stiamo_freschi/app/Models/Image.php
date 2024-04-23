@@ -10,7 +10,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Image extends Model
 {
     use HasFactory;
-    protected $fillable = ['path'];
+    protected $fillable = ['path', 'labels'];
+    protected $casts = [
+        'labels' => 'array'
+    ];
 
     public function announcement()
     {
@@ -33,4 +36,10 @@ class Image extends Model
     {
         return Image::getUrlByFilePath($this->path, $w, $h);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'image_id', 'id');
+    }
+
+    
 }

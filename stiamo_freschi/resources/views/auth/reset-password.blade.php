@@ -13,7 +13,7 @@
                 <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">{{__('ui.emailResetPsw')}}</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                        style="width: 100%; height:40px;" aria-describedby="emailHelp">
+                        style="width: 100%; height:40px;" @if(Auth::check())value="{{Auth::user()->email}}"@endif aria-describedby="emailHelp">
                 </div>
                 @error('email')
                     <div class="alert alert-danger"

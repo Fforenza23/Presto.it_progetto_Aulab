@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use App\Models\Image;
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Announcement extends Model
 {
@@ -39,7 +40,10 @@ class Announcement extends Model
 
     public static function toBeRevisionedCount()
     {
-        return Announcement::where('is_accepted', null)->count();
+        $logged_in_reviewer_id = Auth::id();
+        return Announcement::where('is_accepted', null)
+            ->where('user_id', '!=', $logged_in_reviewer_id)
+            ->count();
     }
 
     public function setAccepted($value)

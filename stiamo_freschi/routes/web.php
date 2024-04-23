@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LanguageController;
@@ -58,3 +59,17 @@ Route::get('/rifiuta-cookies', [PageController::class, 'rifiutaCookies'])->name(
 // Google Auth Socialite
 Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('google.auth');
 Route::get('/auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
+
+// Profile
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/profile/edit', [ProfileController::class, 'goToEdit'])->name('profile.edit')->middleware('auth');
+// profile update
+Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+
+
+//edit announcement
+
+Route::get('/edit/{announcement}', [PageController::class, 'announcementEdit'])->name('announcement.edit')->middleware('auth');
+
+ Route::get('/vaiAlReset', [PageController::class, 'GoToResetPassword']);

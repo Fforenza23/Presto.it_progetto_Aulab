@@ -2,14 +2,18 @@
 
 namespace App\Livewire;
 
-use App\Jobs\GoogleVisionSafeSearch;
-use App\Jobs\RemoveFaces;
+use App\Jobs\GoogleVisionLabelImage;
+use Livewire\Livewire;
 use Livewire\Component;
 use App\Models\Category;
+use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
 use App\Models\Announcement;
 use Livewire\WithFileUploads;
+use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\Watermark;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Lang;
 
 class FormCreate extends Component
 {
@@ -21,6 +25,7 @@ class FormCreate extends Component
     public $images = [];
     public $announcement;
     public $temporary_images;
+    public $announcement_revisor_counter;
 
     public $name = ['Sport', 'Elettronica', 'Musica', 'Casa', 'Giardino', 'Fai da te', 'Abbigliamento', 'Accessori', 'Gioielli'];
 
@@ -36,25 +41,48 @@ class FormCreate extends Component
     ];
 
     protected $messages = [
-        'title.required' => 'Il campo titolo è obbligatorio',
-        'title.min' => 'Il campo titolo deve contenere più di 4 caratteri',
-        'title.max' => 'Il campo titolo deve essere lungo al massimo 40 caratteri',
-        'price.required' => 'Il campo prezzo è obbligatorio',
-        'price.numeric' => 'Il campo prezzo deve essere un numero',
-        'description.required' => 'Il campo descrizione è obbligatorio',
-        'description.min' => 'Il campo descrizione deve contenere più di 10 caratteri',
-        'description.max' => 'Il campo descrizione deve essere lungo al massimo 255 caratteri',
-        'category_id.required' => 'Il campo categoria è obbligatorio',
-        'images.image' => 'I file caricati devono essere delle immagini',
-        'images.max' => 'I file caricati non devono superare 1 mb di grandezza',
-        'temporary_images.*.image' => 'I file caricati devono essere delle immagini',
-        'temporary_images.*.max' => 'I file caricati non devono superare 1 mb di grandezza',
+        'title.required' => '',
+        'title.min' => '',
+        'title.max' => '',
+        'price.required' => '',
+        'price.numeric' => '',
+        'description.required' => '',
+        'description.min' => '',
+        'description.max' => '',
+        'category_id.required' => '',
+        'images.image' => '',
+        'images.max' => '',
+        'temporary_images.*.image' => '',
+        'temporary_images.*.max' => '',
     ];
+
+    public function __construct()
+    {
+
+        $this->messages['title.required'] = Lang::get('ui.titleRequired');
+        $this->messages['title.min'] = Lang::get('ui.titleMin');
+        $this->messages['title.max'] = Lang::get('ui.titleMax');
+        $this->messages['price.required'] = Lang::get('ui.priceRequired');
+        $this->messages['price.numeric'] = Lang::get('ui.priceNumeric');
+        $this->messages['description.required'] = Lang::get('ui.descriptionRequired');
+        $this->messages['description.min'] = Lang::get('ui.descriptionMin');
+        $this->messages['description.max'] = Lang::get('ui.descriptionMax');
+        $this->messages['category_id.required'] = Lang::get('ui.categoryRequired');
+        $this->messages['images.image'] = Lang::get('ui.imagesImage');
+        $this->messages['images.max'] = Lang::get('ui.imagesMax');
+        $this->messages['temporary_images.*.image'] = Lang::get('ui.tempImagesImage');
+        $this->messages['temporary_images.*.max'] = Lang::get('ui.tempImagesMax');
+
+    }
+
+    public function mount()
+    {
+        $this->announcement_revisor_counter = Announcement::toBeRevisionedCount();
+    }
 
 
     public function store()
     {
-
         // [0 => Sport, 1 => Elettronica, 2 => Musica, 3 => Casa, 4 => Giardino, 5 => Fai da te, 6 => Abbigliamento, 7 => Accessori, 8 => Gioielli]
         $validatedData = $this->validate();
         $this->validate();
@@ -64,18 +92,22 @@ class FormCreate extends Component
            Announcement::create(array_merge($validatedData, ['user_id' => $authUser])); */
         if (count($this->images)) {
             foreach ($this->images as $image) {
-                /* $this->announcement->images()->create(['path' => $image->store('images', 'public')]);*/
                 $newFileName = "announcement/{$this->announcement->id}";
                 $newImage = $this->announcement->images()->create(['path' => $image->store($newFileName, 'public')]);
                 RemoveFaces::withChain([
-                    new ResizeImage($newImage->path, 200, 300),
+                    new Watermark($newImage->id),
                     new GoogleVisionSafeSearch($newImage->id),
+                    new GoogleVisionLabelImage($newImage->id),
+                    new ResizeImage($newImage->path, 400, 500),
                 ])->dispatch($newImage->id);
 
+                // Invia la job Watermark separatamente dopo che tutte le altre operazioni sono state completate
+                // Watermark::dispatch($newImage->id);
             }
-
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
+        session()->flash('message', __('ui.messageAsdAccepted'));
+        $this->announcement_revisor_counter = Announcement::toBeRevisionedCount();
         session()->flash('message', 'Annuncio creato con successo! Verrà pubblicato solamente dopo la revisione');
         $this->clearForm();
     }

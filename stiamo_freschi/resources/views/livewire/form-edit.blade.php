@@ -1,8 +1,9 @@
 <div class="row div-form">
     <x-navbar-create :revisorCounter="$announcement_revisor_counter" />
-    <x-session-success />
+
     <div class="col-4 div-cons">
-        <div class="Card">
+        <x-session-success />
+        <div style="margin-right:70px;margin-left:60px;">
             <div class="cardLayoutFormCreate box">
                 <div class="imgCard">
                     @if (empty($images))
@@ -28,7 +29,7 @@
                                     <div class="carousel-item @if ($loop->first) active @endif"
                                         data-bs-interval="10000">
                                         <img src="{{ $image->temporaryUrl() }}" class="d-block w-100" alt="..."
-                                            style="object-fit:cover ; ">
+                                            style="object-fit:cover;">
                                         <div class="carousel-caption d-none d-md-block">
                                             <h5 style="color:white;">{{ __('ui.previewImage') }}</h5>
                                             <button class="RemoveFormCreate btn false"
@@ -52,24 +53,14 @@
                 </div>
                 <div class="userCard">
                     <div class="imageUser">
-                        @if ($title == false && $price == false && $description == false && $category_id == false)
-                            <img src="https://banner2.cleanpng.com/20180508/toe/kisspng-user-profile-computer-icons-clip-art-5af1ac8cee74c6.8111281615257877889767.jpg"
-                                alt="">
-                        @else
-                            @if (Auth::user()->image)
-                                <img src="{{ asset('storage/profile_images/' . Auth::user()->image->path) }}"
-                                    alt="Immagine profilo">
-                            @else
-                                <img src="https://banner2.cleanpng.com/20180508/toe/kisspng-user-profile-computer-icons-clip-art-5af1ac8cee74c6.8111281615257877889767.jpg"
-                                    alt="">
-                            @endif
-                        @endif
+                        <img src="https://banner2.cleanpng.com/20180508/toe/kisspng-user-profile-computer-icons-clip-art-5af1ac8cee74c6.8111281615257877889767.jpg"
+                            alt="">
                     </div>
                     <div class="nomeUser ">
                         <div aria-hidden="true">
                             <div class="card-body">
                                 <p class="card-text placeholder-glow skeleton ">
-                                    @if ($title == false && $price == false && $description == false && $category_id == false)
+                                    @if ($title == false)
                                         <span class="placeholder col-4" style="cursor:default"></span>
                                     @else
                                         {{ Auth::user()->name }}
@@ -108,7 +99,7 @@
                         </h6>
                     </div>
                 </div>
-                <div class="descrizioneCard">
+                <div class="descrizioneCard" style="">
                     <div aria-hidden="true">
                         <p class="card-text placeholder-glow skeleton centro-skeletron"
                             style="font-size: 16px;margin-bottom:20px">
@@ -126,7 +117,7 @@
                     @else
                         <button type="submit" id='submitButtonFormCreate' class="BtnRegistratiLogin"
                             style="height:35px; font-size:18px;cursor:pointer"><label for="ButtonSubmitForm"
-                                tabindex="0">{{ __('ui.buttonCreateAnnouncement') }}</label></button>
+                                tabindex="0">Modifica il tuo annuncio</label></button>
                     @endif
                 </div>
             </div>
@@ -135,13 +126,13 @@
 
 
         <div class="col-4 div-modale">
-            <h1 style="margin-bottom: 20px">{{ __('ui.createAnnouncements') }}</h1>
+            <h1 style="margin-bottom: 20px">Modifica il tuo annuncio</h1>
 
             <div class="form3">
 
-                <form wire:submit.live="store" id="FormCreateAnnouncement">
+                <form id="FormCreateAnnouncement" wire:submit.prevent="submitForm">
                     <div class="mb-3">
-                        <label for="title" class="form-label">{{ __('ui.InsertTitleAnnouncements') }}</label>
+                        <label for="title" class="form-label">Modifica il titolo dell'annuncio</label>
                         <input type="text" name="title" class="form-control" style="width: 100%; height:35px;"
                             id="title" wire:model.live="title">
                     </div>
@@ -152,7 +143,7 @@
                         </div>
                     @enderror
                     <div class="mb-3">
-                        <label for="price" class="form-label">{{ __('ui.InsertPriceAnnouncements') }}</label>
+                        <label for="price" class="form-label">Modifica il prezzo</label>
                         <input type="price" name="price" class="form-control" style="width: 100%; height:35px;"
                             id="price" wire:model.live="price">
                     </div>
@@ -163,8 +154,7 @@
                         </div>
                     @enderror
                     <div class="mb-3">
-                        <label for="description"
-                            class="form-label">{{ __('ui.InsertDescriptionAnnouncements') }}</label>
+                        <label for="description" class="form-label">Modifica la descrizione</label>
                         <input type="textarea" name="description" class="form-control"
                             style="width: 100%; height:35px;" id="description" wire:model.live="description">
                     </div>
@@ -175,7 +165,7 @@
                         </div>
                     @enderror
                     <div class="mb-3">
-                        <label for="category">{{ __('ui.selectCategory') }}</label>
+                        <label for="category">Modifica la categoria</label>
                     </div>
                     <select class="form-select" aria-label="Default select example" name="category_id"
                         style="width: 100%; height:35px;margin-bottom: 20px;" wire:model.live="category_id">
@@ -194,7 +184,7 @@
                         </div>
                     @enderror
                     <div class="mb-3">
-                        <label for="image" class="form-label">{{ __('ui.InsertImageAnnouncements') }}</label>
+                        <label for="image" class="form-label">Carica una nuova immagine</label>
                         <input wire:model='temporary_images' type="file" name="image" multiple
                             class="form-control @error('temporary_images.*') is-invalide @enderror" id="image"
                             wire:model.blur="image" style="width: 100%; height:35px;margin-bottom: 20px">
@@ -206,7 +196,9 @@
                         </div>
                     @enderror
 
-                    <button type="submit" hidden class="BtnRegistratiLogin" id="ButtonSubmitForm">Crea il
+
+                    <button type="submit" class="BtnRegistratiLogin" hidden wire:click="editAnnouncement"
+                        id="ButtonSubmitForm">Crea il
                         tuo
                         annuncio</button>
                 </form>
@@ -214,4 +206,11 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('livewire:load', function() {
+            Livewire.on('redirectToProfile', () => {
+                window.location.href = '{{ route('dashboard') }}'; // Reindirizza alla pagina del profilo
+            });
+        });
+    </script>
 </div>

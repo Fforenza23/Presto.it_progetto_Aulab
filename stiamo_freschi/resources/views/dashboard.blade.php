@@ -1,9 +1,9 @@
 <x-layout>
-    <x-navbar2 />
-    <div style="display: flex;height:max-content">
+    <x-navbar />
+    <div class="PadreDivREvi">
         <div class="div-card1">
             <div class="div-card_dash">
-                <a href="{{ route('revisor.index') }}" class="card_dash_p lf box">
+                <div href="{{ route('revisor.index') }}" class="card_dash_pR RevisorDashboard lf box XcolorA">
                     <div class="li-aside2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-card-checklist" viewBox="0 0 16 16">
@@ -12,98 +12,92 @@
                             <path
                                 d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
                         </svg>
-                        <span class="liMargin">Zona Revisore</span>
+                        <span class="liMargin" style="font-weight:500;font-size:20px">Zona Revisore</span>
                     </div>
                     @if (Auth::check())
                         @if (Auth::user()->is_revisor)
-                            <div
-                                style="display:flex;flex-direction:column; justify-content:center; align-items:center; height:200px;padding-top:20px">
-                                <div style="margin: 10px">
-                                    <h5 style="color:#081F37">Articoli da revisionare</h5>
+                            <a href="{{route('revisor.index')}}">
+                                <div
+                                    style="display:flex;flex-direction:column; justify-content:center; align-items:center; height:200px;padding-top:20px">
+                                    <div style="margin: 10px">
+                                        <h5 style="color:white">Articoli da revisionare</h5>
+                                    </div>
+                                    <div id="border_num" class="grafic-revisor">
+                                        <span id="dash_num" class="dropdown-item dash_num">
+                                            {{ App\Models\Announcement::toBeRevisionedCount() }}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div id="border_num" class="grafic-revisor">
-                                    <span id="dash_num" class="dropdown-item dash_num">
-                                        {{ App\Models\Announcement::toBeRevisionedCount() }}
-                                    </span>
-                                </div>
-                            </div>
+                            </a>
                         @endif
                     @endif
                     @if (!Auth::user()->is_revisor)
                         <div
-                            style="display:flex;flex-direction:column; justify-content:center; align-items:center; height:200px;padding-top:20px">
-                            <div style="margin: 10px">
-                                <h5 style="color:#081F37">Diventa revisore</h5>
+                            style="display:flex; justify-content:center; align-items:center; height:200px;padding-top:20px">
+                            <div style="display: flex;flex-direction:column;justify-content:center;align-items:center">
+                                <h1>Non sei ancora revisore?</h1>
+
+                                <a href="{{route('become.revisor')}}"><button class="btn buttonBecomeRevisorDashboard">Invia ora la tua richiesta</button></a>
                             </div>
                         </div>
                     @endif
-                </a>
-                <div class="card_dash_p box">
-                    <div class="li-aside2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-archive" viewBox="0 0 16 16">
-                            <path
-                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-                        </svg>
-                        <li class="liMargin">Catalogs</li>
-                    </div>
-                </div>
-                <div class="card_dash_p box">
-                    <div class="li-aside2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-person" viewBox="0 0 16 16">
-                            <path
-                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-                        </svg>
-                        <li class="liMargin">Profile</li>
-                    </div>
-                    <div style="display:flex; justify-content:center;align-items:center; height:70%">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
-                            class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                            <path fill-rule="evenodd"
-                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                        </svg>
-                        <h4 style="margin: 50px;color:#081F37">{{ auth()->user()->name }}</h4>
-
-                    </div>
                 </div>
             </div>
             <div class="div-card_dash">
-                <div class="card_dash_p lf box">
-                    <div class="li-aside2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-heart" viewBox="0 0 16 16">
-                            <path
-                                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-                        </svg>
-                        <li class="liMargin">My favorites</li>
+
+                <a href="/">
+                    <div class="card_dash_p box homepageDashboard">
+                        <div class="li-aside2" style="border-bottom:1px solid white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-house-door" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z" />
+                            </svg>
+                            <li class="liMargin">Vai alla Home</li>
+                        </div>
+                        <div
+                            style="height:400px; display:flex; justify-content:center;align-items:center;background-color:none;margin:none;padding:none">
+
+                        </div>
                     </div>
-                </div>
-                <div class="card_dash_p box">
-                    <div class="li-aside2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-file-earmark-post" viewBox="0 0 16 16">
-                            <path
-                                d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
-                            <path
-                                d="M4 6.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5H7a.5.5 0 0 1 0 1H4.5a.5.5 0 0 1-.5-.5" />
-                        </svg>
-                        <li class="liMargin">My articles</li>
+                </a>
+                <a class="XcolorA" href="{{ route('profile') }}">
+                    <div class="card_dash_p box">
+                        <div class="li-aside2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                            </svg>
+                            <li class="liMargin">Il tuo profilo</li>
+                        </div>
+                        <div
+                            style="display:flex; justify-content:center;align-items:center;background-color:none;margin:none;padding:none">
+                            <div class="divfoto" style="justify-content: center; background-color:none">
+                                @if (!Auth::user()->image)
+                                    <img src="{{ asset('img/2318271-icona-profilo-utente-vettoriale-removebg-preview.png') }}"
+                                        alt="">
+                                @else
+                                    <img src="{{ asset('storage/profile_images/' . Auth::user()->image->path) }}"
+                                        alt="" style="height: 180px;width:180px;margin-top:5px">
+                                @endif
+                            </div>
+                            <h4>{{ auth()->user()->name }}</h4>
+                        </div>
                     </div>
-                </div>
-                <div class="card_dash_p  box">
-                    <div class="li-aside2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-trash" viewBox="0 0 16 16">
-                            <path
-                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                            <path
-                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                        </svg>
-                        <li class="liMargin">Basket</li>
+                </a>
+                <a href="/create">
+                    <div class="card_dash_p  box creaAnnuncioDashboard">
+                        <div class="li-aside2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-bag-heart" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
+                            </svg>
+                            <li class="liMargin">Crea il tuo annuncio</li>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
         </div>

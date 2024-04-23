@@ -4,8 +4,8 @@
     </div>
     <div class="userCard">
         <div class="imageUser">
-            <img src="{{asset('img/MainAfter.webp')}}"
-                alt="">
+            {{-- <img src="{{asset('img\2318271-icona-profilo-utente-vettoriale-removebg-preview.png')}}"> --}}
+            <img src="{{ $userimageannouncement}}">
         </div>
         <div class="nomeUser">
             <p style="font-size: 15px;color:black">{{ $user }}</p>

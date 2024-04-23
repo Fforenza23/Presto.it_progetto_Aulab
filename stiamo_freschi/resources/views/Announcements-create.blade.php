@@ -1,9 +1,5 @@
 <x-layout>
-    <x-navbar />
-
-
-
-
-    <livewire:form-create />
-
+    
+        <livewire:form-create />
+    
 </x-layout>

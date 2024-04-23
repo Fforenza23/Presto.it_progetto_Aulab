@@ -216,7 +216,7 @@
                         <li>
                             <a class="dropdown-item" href="#">{{ __('ui.dropDwnAssistance') }}</a>
                         </li>
-                        @if (Auth::check())
+{{--                         @if (Auth::check())
                             @if (Auth::user()->is_revisor)
                                 <li><a class="dropdown-item" href="{{ route('revisor.index') }}">
                                         {{ __('ui.dropDwnRevisor') }}
@@ -224,7 +224,7 @@
                                     </a>
                                 </li>
                             @endif
-                        @endif
+                        @endif --}}
                         @if (!Auth::user()->is_revisor)
                             <li><a class="dropdown-item" href="{{ route('become.revisor') }}">Diventa revisore
                         @endif
